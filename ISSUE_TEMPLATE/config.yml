@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://opsaido.io/docs
+    about: Installing, connecting your systems, permissions, approvals and security.
+  - name: Security problem
+    url: https://github.com/opsaido-io/.github/blob/main/SECURITY.md
+    about: Please do not open a public issue. Follow the security policy instead.
+  - name: Plans, licences and pricing
+    url: https://opsaido.io/pricing.html
+    about: Questions about plans or licences go to sales@opsaido.io.

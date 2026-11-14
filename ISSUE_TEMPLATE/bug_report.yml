@@ -1,0 +1,57 @@
+name: Bug report
+description: Something does not work the way it should
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. For a security problem, please do **not** use this form: see the security policy.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Settings → About shows it.
+      placeholder: "for example 1.4.2"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See ...
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where
+      options:
+        - Assistant (chat)
+        - Virtualization
+        - Containers / Kubernetes
+        - Databases
+        - Backup and recovery
+        - Patching
+        - Security / certificates / vault
+        - Monitoring / alerts
+        - Settings / connectors
+        - Website or documentation
+        - Something else
+  - type: input
+    id: connector
+    attributes:
+      label: The system involved
+      description: The kind of system and its version (for example Proxmox VE 9, Windows Server 2022). Please leave out names, addresses and passwords.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or a screenshot
+      description: Anything that helps. Look through it first and remove anything private.

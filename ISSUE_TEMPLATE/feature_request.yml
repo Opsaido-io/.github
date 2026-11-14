@@ -1,0 +1,29 @@
+name: Feature request
+description: An idea that would make Opsaido more useful to you
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The job or the problem first, before the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like it to do?
+  - type: input
+    id: system
+    attributes:
+      label: Which system or product is it about?
+      description: For a new integration, the product and its version.
+  - type: dropdown
+    id: size
+    attributes:
+      label: How do you use Opsaido?
+      options:
+        - Homelab
+        - Small or medium business
+        - Enterprise
+        - Just looking
