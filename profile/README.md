@@ -117,9 +117,28 @@ Homelab, small to medium business or enterprise: it scales with you, from one se
 #### Certificates
 
 - **Request from any authority.** Let's Encrypt or any ACME CA (with DNS validation), Microsoft AD Certificate Services, HashiCorp Vault PKI, EJBCA, DigiCert CertCentral, Sectigo Certificate Manager and AWS Private CA. Opsaido makes the key and the CA signs the request, so the key never leaves Opsaido. Public CAs that validate first stay *pending*, and the assistant shows which domains still need validating.
-- **Never miss an expiry.** Every certificate with its expiry date in one list, including ones already installed on your Windows servers so you see them coming.
+- **Never miss an expiry.** Every certificate with its expiry date in one list, including ones already installed on your Windows and Linux servers and the ones your reverse proxies serve, so you see them coming.
+- **Expiry reminders by email.** Schedule a reminder at the days left you choose (for example 60, 30, 14, 7 and 1). The email carries each certificate's details in the message itself: names, type, who issued it, serial number, expiry date, where it is used and whether it renews by itself. Watch the certificates Opsaido manages, the ones on your servers and the private CA's certificates and CAs. Each certificate is reported once per threshold, a renewed one starts again, it can stay quiet when nothing is due, extra addresses can be added, and Telegram, Slack and Teams get the headline and a link.
 - **Renewed and redeployed automatically.** A renewed certificate is pushed again wherever it was deployed.
 - **Put it where it's needed.** Push to Windows servers, push to or pull from Azure Key Vault (for App Service or Application Gateway, with automatic renewal), or download as PFX or PEM.
+
+#### Private CA
+
+Run your own certificate authority, separate from the certificates above: an **offline root** and an **online issuing CA**.
+
+- **Two ways to start.** *Build the whole chain here*: Opsaido makes the root and the issuing CA, and the root key is given to you once as a passphrase-protected file and is **not kept**; only the issuing CA stays online, with its key encrypted by the vault. Or *bring your own offline root*: Opsaido makes the issuing CA's key and a signing request, you sign it on your root and upload the result, and Opsaido checks that it is for that key, is a CA, is in date and that the chain holds together.
+- **Issues what you need.** Server (TLS) certificates with DNS names and addresses, and client / user certificates, made here (key kept encrypted) or signed from a request a device made itself, whose key never comes to Opsaido. A certificate never outlives its CA.
+- **Revoke and publish.** Revoking puts a certificate on the CA's revocation list. The CA certificate and the CRL are published on your public address without sign-in and written into every certificate it issues, and a Trust file puts the CA on the machines that should trust it.
+- **Take it away.** Download in PEM, full chain, DER, PKCS#7, key or PFX; downloads with a key are audited. Renew the issuing CA with the root key file when it nears its end.
+- **Watched like the rest.** The private CA's certificates and the CAs themselves are covered by the expiry reminders.
+
+#### Topology
+
+- **Your estate drawn from what is really there.** An automatic diagram grouped by site and role, with the problems highlighted.
+- **A live map of how systems connect.** Hypervisors, VMs, switches and the services talking to each other, down to the switch port: click a node for its connections, ports and the switch port it sits on.
+- **A world map of traffic.** Where connections go, looked up locally so nothing is sent out.
+- **A hierarchy view.** Clusters, hosts, VMs and containers as a tree.
+- **Part of the same picture.** Every switch port live with speed, VLANs and traffic (any vendor over SNMP, Omada and UniFi), and all your firewalls in one view with live blocked and allowed traffic, so the map and the detail agree.
 
 #### Database backups
 
