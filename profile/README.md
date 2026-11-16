@@ -76,11 +76,10 @@ Homelab, small to medium business or enterprise: it scales with you, from one se
 - **Quick actions:** save a request as a one-click button with keyboard shortcuts 1 to 9, and share it with your team.
 - **Self-heal:** alerts can start a fix on their own, within the limits you set.
 
-#### IPAM, assets and software inventory
+#### IPAM and asset lifecycle
 
 - **IPAM:** every address Opsaido knows about, per subnet: DHCP leases, devices seen on the network, monitored servers and DNS records, with free ranges, conflicts, device history per address and alerts for new devices. It reads, and changes nothing on your DHCP or DNS servers. Scheduled reports by email or chat.
 - **Asset lifecycle:** warranties, support contracts, subscriptions and end-of-life dates, with reminders before they lapse.
-- **Software inventory:** every app and package on your Linux and Windows servers, per-user and Store apps included, plus the container images your Docker hosts run. See each app once with the hosts and versions, what changed since last time, which versions are old, vulnerable or unwanted, and export to Excel or CSV for a licence audit.
 
 #### Security posture
 
@@ -126,6 +125,26 @@ Homelab, small to medium business or enterprise: it scales with you, from one se
 - **Read-only.** It collects everything in one pass: inside the operating system (Linux over SSH, Windows over WinRM) the identity, hardware, storage, network, roles and features, services, listening ports, users, groups and administrators, shares and permissions, scheduled tasks, firewall and remote-access settings; the VM around it (every setting, disk, adapter, snapshot, HA and firewall); and what Opsaido already knows: installed software, baseline score, vulnerabilities, certificates, pending updates, recent alerts and metrics.
 - **Generate whenever you need it**, and push the documentation to a Git repository.
 - **Audit-ready.** The finished PDF is something you can hand to an auditor or a new colleague.
+
+#### Software inventory
+
+- **Every app and package on every server**, with the OS and hardware: Linux and Windows, including per-user installs and Microsoft Store apps, refreshed every 12 hours. The container images your Docker hosts run are in the same list.
+- **By app:** each app once, how many hosts have it and which versions. Filter by type (apps, packages, Store apps, per-user apps, container images), by OS or by flag, and click an app to see every host and version.
+- **By host:** everything installed on a server, with operating systems past or near end of support flagged.
+- **Flags that matter:** older versions than the newest in your fleet, vulnerable (from the latest scans) and unwanted software from your own list, with a notification when something new appears on a server.
+- **What changed:** what was installed, removed or updated on each server since its last inventory, kept for a year by default.
+- **Excel and CSV** of every app with its install count, every install per host, and the hosts: ready for a licence audit.
+
+#### Reporting, delivered to your mailbox
+
+- **Reports for managers and auditors**, as finished PDFs and Excel files:
+  - *Security:* a PDF per host and scan with the score, failures by severity and exactly what needs fixing, plus an Excel compliance report against the built-in baselines or your own tech spec.
+  - *Vulnerabilities:* a PDF per scan (patch first, patch soon, everything else) and an Excel report of every finding across the fleet.
+  - *Backups:* a PDF with the coverage ring, what needs attention, every backup and Proxmox Backup Server job, and each machine's latest backup, with an HTML email carrying the headline numbers and the PDF attached.
+  - *Patching:* ask the assistant for a patch report (pending updates across Linux, Windows, Proxmox and containers) and schedule it, for example every Monday.
+  - *Documentation, recoverability, IPAM, software and assets:* the Documentator PDFs, the Recoverability report, the new-device and conflict report, and the software and licence exports.
+- **Scheduled delivery.** Send any report daily, weekly, monthly or on a cron schedule, to a mailbox, Telegram, Teams and other channels (the IPAM report can be sent only when something is new). The last and next run of every schedule are in one list under Workflows → Jobs, and you can run one now.
+- **Set it up in chat**: any request, such as a patch or backup check, can run on a schedule and send you the result.
 
 100+ integrations and 1,000+ things it can do, in plain language. [See them all](https://opsaido.io/integrations.html).
 
