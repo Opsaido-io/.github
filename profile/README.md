@@ -56,6 +56,16 @@ Homelab, small to medium business or enterprise: it scales with you, from one se
 - **Kubernetes and k3s:** nodes, namespaces, workloads, pods, services, ingresses, config and storage. Logs, a shell in any pod, scale, rolling restart, roll back, cordon and drain, run a CronJob now, edit and apply YAML, warnings, security checks and image scans.
 - **Databases:** backup, restore and test restore.
 
+#### Remote access
+
+- **RDP and SSH in the browser, with nothing to install.** Open a Windows desktop or a Linux shell from the Remote access page, a connector, or a machine's right-click menu.
+- **Proxmox VM and container consoles.** The screen of any VM or container in the browser, in its own window, with power (start, shut down, stop), fit to window, Ctrl+Alt+Del, function keys, paste, fullscreen and reconnect. Proxmox's login stays on the server; the browser only receives a one-time ticket for that console.
+- **A root shell on a node**, in the page or in its own window, and a **terminal and file browser inside any container**, and a shell in any Kubernetes pod.
+- **Built for real sessions.** A floating toolbar (Ctrl+Alt+Del, clipboard, special keys) you can drag anywhere, pop a session out into its own window and resize it, and RDP settings for all connections or for one.
+- **Networks you can't reach directly.** Use the built-in remote desktop service (guacd) or your own, and add more of them for other zones such as a DMZ or another site. Tag a service (for example `dmz`) and hosts with that tag use it automatically; a connection can pick its own; an optional fallback to the default; and every service is health-checked, with a dashboard warning if one in use stops answering.
+- **Governed like everything else.** Remote access has its own permissions for SSH, RDP and settings, uses the logins you already stored in the vault, and every session is recorded in the audit log.
+- **Prefer a desktop client?** Open the connection in the Remote Desktop app with an .rdp file instead.
+
 #### The assistant
 
 - **Ask in plain English** and get answers from live data across everything you've connected: servers, VMs, containers, networks, firewalls, storage, backups, cloud and smart home. 1,000+ things it can do, across 100+ integrations.
