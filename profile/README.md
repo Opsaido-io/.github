@@ -82,6 +82,30 @@ Homelab, small to medium business or enterprise: it scales with you, from one se
 - **Asset lifecycle:** warranties, support contracts, subscriptions and end-of-life dates, with reminders before they lapse.
 - **Software inventory:** every app and package on your Linux and Windows servers, per-user and Store apps included, plus the container images your Docker hosts run. See each app once with the hosts and versions, what changed since last time, which versions are old, vulnerable or unwanted, and export to Excel or CSV for a licence audit.
 
+#### Security posture
+
+- **Baselines on every host.** Linux (Ubuntu, Debian, RHEL family) and Windows Server are checked against built-in CIS-aligned baselines, agentless and read-only over the login Opsaido already has; nothing is installed. Docker hosts and containers are checked against Docker best practice, Kubernetes with kube-bench, and a full OpenSCAP scan runs on request.
+- **Your own standard.** Bring your tech spec as Excel, CSV, Word or PDF and it becomes checks that run on top of the baseline; accept a failing check with a reason; download a compliance report in Excel.
+- **A score per host and for the fleet**, the most common failures, history per host, and a *security drift* notification when something that passed now fails. Scans repeat every 7 days.
+- **Fix it with approval.** "Fix…" on a check shows exactly what will change, waits for you, keeps the old values so it can be rolled back, and scans again straight after.
+- **Vulnerabilities ranked by real risk.** Linux packages (checked against OSV.dev), missing Windows security updates and container images (Trivy), ordered by known exploited (CISA), exploit likelihood (EPSS), severity and whether it is exposed to the network. "Patch first" and "patch soon" lists, one-click patching with approval, a PDF per scan and an Excel fleet report.
+- **Certificates:** request and renew automatically from Let's Encrypt or any ACME CA, AD Certificate Services, Vault PKI, EJBCA, DigiCert, Sectigo or AWS Private CA; push to Windows servers, Azure Key Vault or download as PFX or PEM.
+
+#### Vault
+
+- **Every stored secret is encrypted.** Each secret has its own AES-256-GCM key, wrapped by a master key kept outside the database, so a stolen database holds nothing usable. If the keys are missing the vault stays sealed rather than inventing new ones, and a passphrase-protected recovery bundle restores it.
+- **Credentials and SSH keys, reused.** Save a login once and use it on many connectors. Generate an SSH key pair (the private key never leaves Opsaido), install it on hosts, test it, switch the connectors over and rotate it later.
+- **Use the vault you already have.** HashiCorp Vault or OpenBao, Bitwarden Secrets Manager, Infisical, Azure Key Vault, AWS Secrets Manager and 1Password Connect can hold your secrets and variables, referenced by path instead of copied; used in connectors, generated Compose, Terraform and Ansible files and scheduled jobs.
+- **Never shown to the AI.** Secrets stay out of the chat: a new token's secret is saved as a credential, not displayed.
+
+#### Recoverability
+
+- **One score for "can we really get it back?"** Every protected thing is graded by proof: no usable backup, backed up, verified (integrity checked), or restore-tested (restored somewhere harmless and shown to work). The score averages them and lists what would raise it.
+- **Real restore tests.** Opsaido restores a Proxmox backup as a new, isolated machine with its network cards and passthrough devices removed, watches it boot and then destroys it. It never restores over an existing machine. Databases get the same: a test restore of a verified backup.
+- **Covers what you use:** machines (including backups kept outside Proxmox Backup Server), databases, Veeam jobs and Opsaido's own backup.
+- **Reports and rehearsal.** A backup report showing what's protected and what isn't, site recovery plan tests, and power-cut protection that shuts everything down in order and starts it back in reverse.
+- **Restore wizards** for VMs and containers (as a new machine or over the original), single-item restore of Opsaido's own configuration, and config backups for network gear with what changed between copies.
+
 100+ integrations and 1,000+ things it can do, in plain language. [See them all](https://opsaido.io/integrations.html).
 
 ### Get started
