@@ -118,6 +118,10 @@ Install with Docker in about five minutes: one container, on your own hardware. 
 
 Reads run freely. Anything that changes a system waits for your approval and shows the exact command first. Every change is recorded and can be rolled back. [How it works](https://opsaido.io/docs/security-model)
 
+### No telemetry
+
+Opsaido doesn't report on you: no usage data, no analytics, no trackers, and never your host names, IP addresses, logs, chats, commands, results or credentials. The only call home is licensing (licence ID, installation ID, version and the *number* of machines), and **offline licences never call home**, for air-gapped and regulated sites. Your questions go only to the AI provider you choose, or nowhere at all with a local model. [What leaves your network](https://opsaido.io/docs/security-model)
+
 ### Contact
 
 Questions, ideas or a problem? [hello@opsaido.io](mailto:hello@opsaido.io) · [Support](https://github.com/opsaido-io/.github/blob/main/SUPPORT.md) · [Security](https://github.com/opsaido-io/.github/blob/main/SECURITY.md)
