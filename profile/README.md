@@ -89,7 +89,6 @@ Homelab, small to medium business or enterprise: it scales with you, from one se
 - **A score per host and for the fleet**, the most common failures, history per host, and a *security drift* notification when something that passed now fails. Scans repeat every 7 days.
 - **Fix it with approval.** "Fix…" on a check shows exactly what will change, waits for you, keeps the old values so it can be rolled back, and scans again straight after.
 - **Vulnerabilities ranked by real risk.** Linux packages (checked against OSV.dev), missing Windows security updates and container images (Trivy), ordered by known exploited (CISA), exploit likelihood (EPSS), severity and whether it is exposed to the network. "Patch first" and "patch soon" lists, one-click patching with approval, a PDF per scan and an Excel fleet report.
-- **Certificates:** request and renew automatically from Let's Encrypt or any ACME CA, AD Certificate Services, Vault PKI, EJBCA, DigiCert, Sectigo or AWS Private CA; push to Windows servers, Azure Key Vault or download as PFX or PEM.
 
 #### Vault
 
@@ -105,6 +104,28 @@ Homelab, small to medium business or enterprise: it scales with you, from one se
 - **Covers what you use:** machines (including backups kept outside Proxmox Backup Server), databases, Veeam jobs and Opsaido's own backup.
 - **Reports and rehearsal.** A backup report showing what's protected and what isn't, site recovery plan tests, and power-cut protection that shuts everything down in order and starts it back in reverse.
 - **Restore wizards** for VMs and containers (as a new machine or over the original), single-item restore of Opsaido's own configuration, and config backups for network gear with what changed between copies.
+
+#### Certificates
+
+- **Request from any authority.** Let's Encrypt or any ACME CA (with DNS validation), Microsoft AD Certificate Services, HashiCorp Vault PKI, EJBCA, DigiCert CertCentral, Sectigo Certificate Manager and AWS Private CA. Opsaido makes the key and the CA signs the request, so the key never leaves Opsaido. Public CAs that validate first stay *pending*, and the assistant shows which domains still need validating.
+- **Never miss an expiry.** Every certificate with its expiry date in one list, including ones already installed on your Windows servers so you see them coming.
+- **Renewed and redeployed automatically.** A renewed certificate is pushed again wherever it was deployed.
+- **Put it where it's needed.** Push to Windows servers, push to or pull from Azure Key Vault (for App Service or Application Gateway, with automatic renewal), or download as PFX or PEM.
+
+#### Database backups
+
+- **PostgreSQL, MySQL / MariaDB and SQL Server**, on a schedule or by hand, kept on a folder, an SMB share, NFS or S3 (SQL Server writes its own files on the server). Database passwords are stored encrypted and never shown again.
+- **Verified.** Every backup is integrity-checked and recorded, so the history and "last proven restorable" survive restarts.
+- **Restore safely.** Restore as a new database, so the original is never touched.
+- **Proven by a test restore.** Opsaido restores a verified backup somewhere harmless and shows it works, which counts toward your Recoverability score.
+- **Runs as the organisation**, not as the person who set it up, so jobs keep running when people change roles.
+
+#### Documentator
+
+- **Complete documentation as a finished PDF**, written from what is really there, for any server, VM, Proxmox node, firewall, DNS service, domain controller or your whole infrastructure. It explains the findings in plain words.
+- **Read-only.** It collects everything in one pass: inside the operating system (Linux over SSH, Windows over WinRM) the identity, hardware, storage, network, roles and features, services, listening ports, users, groups and administrators, shares and permissions, scheduled tasks, firewall and remote-access settings; the VM around it (every setting, disk, adapter, snapshot, HA and firewall); and what Opsaido already knows: installed software, baseline score, vulnerabilities, certificates, pending updates, recent alerts and metrics.
+- **Generate whenever you need it**, and push the documentation to a Git repository.
+- **Audit-ready.** The finished PDF is something you can hand to an auditor or a new colleague.
 
 100+ integrations and 1,000+ things it can do, in plain language. [See them all](https://opsaido.io/integrations.html).
 
