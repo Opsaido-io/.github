@@ -12,7 +12,9 @@
   <a href="https://opsaido.io/changelog">What's new</a>
 </p>
 
-<p align="center"><a href="https://github.com/Opsaido-io/.github/blob/main/profile/opsaido-tour.mp4">▶ Watch the product tour (34 min, every area in the app)</a></p>
+https://github.com/user-attachments/assets/bce99300-2833-48f2-afbd-4da837486a0d
+
+<p align="center"><a href="https://github.com/Opsaido-io/.github/blob/main/profile/opsaido-tour.mp4">▶ Watch the full product tour (34 min, every area in the app)</a></p>
 
 **Opsaido** is an operator for your servers, network, apps and smart home. Ask in plain English: it plans the work, shows you a **dry run**, waits for your **approval** and can **roll it back**. It also monitors everything live, and it comes with its own management tools that **work without AI**: use the assistant, or don't, and everything is still managed from one place.
 
